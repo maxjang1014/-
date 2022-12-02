@@ -1,0 +1,60 @@
+1.
+class Fighter():
+    def attack(self): pass
+
+    def defend(self): pass
+
+    def escape(self): pass
+
+
+class Warrior(Fighter):
+    def attack(self):
+        print('칼을 휘두름')
+
+    def defend(self):
+        print('방패를 올림')
+
+    def escape(self):
+        print('뒤로 구름')
+
+
+class WizardAdapter(Fighter):
+    def __init__(self, wizard):
+        self.wizard = wizard
+
+    def attack(self):
+        self.wizard.shot_fire_ball()
+
+    def defend(self):
+        self.wizard.shield()
+
+    def escape(self):
+        self.wizard.portal()
+
+
+class Wizard:
+    def shot_fire_ball(self):
+        print('파이어볼 발사')
+
+    def shield(self):
+        print('쉴드 치기')
+
+    def portal(self):
+        print('포탈 열기')
+
+wizard = WizardAdapter(Wizard())
+////////////////////////////////////////////////////////
+2.
+public class Sleep implements State {
+	public Sleep() {
+		System.out.printLn("<<현재 상태 : 수면>>");
+	}
+	public void on_button( ElectricFan EF) {
+		System.out.printLn("\n***on 버튼 눌림***\n" + 수면에서 송풍 상태로 바뀜\n");
+		EF.setState(new Wind());
+	}
+	public void off_button( ElectricFan EF) {
+		System.out.printLn("\n***off 버튼 눌림***\n" + 수면에서 정지 상태로 바뀜\n");
+		EF.setState(new Stop());
+	}
+}
