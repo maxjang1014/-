@@ -6,7 +6,6 @@ class Fighter():
 
     def escape(self): pass
 
-
 class Warrior(Fighter):
     def attack(self):
         print('칼을 휘두름')
@@ -58,3 +57,5 @@ public class Sleep implements State {
 		EF.setState(new Stop());
 	}
 }
+//////////////////////////////////////////////////////////
+push
